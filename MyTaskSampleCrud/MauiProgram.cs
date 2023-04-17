@@ -1,4 +1,6 @@
-﻿namespace MyTaskSampleCrud;
+﻿using MyTaskSampleCrud.ViewModel;
+
+namespace MyTaskSampleCrud;
 
 public static class MauiProgram
 {
@@ -13,6 +15,8 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
+		builder.Services.AddSingleton<MainPage>();
+		builder.Services.AddSingleton<MainViewModel>();
 		return builder.Build();
 	}
 }

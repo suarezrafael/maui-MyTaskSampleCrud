@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyTaskSampleCrud.MainPage">
+             x:Class="MyTaskSampleCrud.MainPage"
+             xmlns:viewmodel="clr-namespace:MyTaskSampleCrud.ViewModel"
+             x:DataType="viewmodel:MainViewModel">
     <!--Grid com 3 linhas, 1ª100px,2ªaltura auto, 3ª 1/3 do que restar 
         2 colunas: 1ª 75%, 2ª 25%
         espacamento  entre linhas 
@@ -18,27 +20,23 @@
                BackgroundColor="Transparent"/>
         <!--Entrada de texto indicando Grid.Row 2 (2ª linha)-->
         <Entry Placeholder="Enter task"
-               Grid.Row="1" />
+               Grid.Row="1" 
+               Text="{Binding Text}"/>
         <!--Botão indicando 2ª linha e 2ª coluna-->
         <Button Text="Add"
                 Grid.Row="1" 
-                Grid.Column="1"/>
+                Grid.Column="1"
+                Command="{Binding AddCommand}"/>
         <!--Coleção de array setado como string
             Template com swipview(segura e arrasta)
             Grid com Frame dentro 
             E Label com BInding dele mesmo-->
         <CollectionView Grid.Row="2"
-                        Grid.ColumnSpan="10">
-            <CollectionView.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>Orange</x:String>
-                    <x:String>Bananas</x:String>
-                    <x:String>Bananas</x:String>
-                    <x:String>Bananas</x:String>
-                </x:Array>
-            </CollectionView.ItemsSource>
+                        Grid.ColumnSpan="10"
+                        ItemsSource="{Binding Items}">
+            
             <CollectionView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="{x:Type x:String}">
                     <SwipeView>
                         <SwipeView.RightItems>
                             <SwipeItems>
