@@ -28,6 +28,15 @@ namespace MyTaskSampleCrud.ViewModel
             Items.Add(Text);
             Text = string.Empty;
         }
-      
+
+        [RelayCommand]
+        void Delete(string item)
+        {
+            if(Items.Contains(item))
+            Items.Remove(item);
+            
+        }
+
+
     }
 }
