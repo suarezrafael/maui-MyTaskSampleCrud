@@ -3,8 +3,52 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyTaskSampleCrud.MainPage">
 
-    <Grid>
-        
+    <Grid RowDefinitions="100, Auto, *"
+          ColumnDefinitions=".75*, .25*"
+          Padding="10"
+          RowSpacing="10"
+          ColumnSpacing="10">
+
+        <Image Grid.ColumnSpan="2"
+               Source="logo.png"
+               BackgroundColor="Transparent"/>
+
+        <Entry Placeholder="Enter task"
+               Grid.Row="1" />
+
+        <Button Text="Add"
+                Grid.Row="1" 
+                Grid.Column="1"/>
+
+        <CollectionView Grid.Row="2"
+                        Grid.ColumnSpan="10">
+            <CollectionView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Orange</x:String>
+                    <x:String>Bananas</x:String>
+                    <x:String>Bananas</x:String>
+                    <x:String>Bananas</x:String>
+                </x:Array>
+            </CollectionView.ItemsSource>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Delete"
+                                           BackgroundColor="Red"/>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <Grid Padding="0,5">
+                            <Frame>
+                                <Label Text="{Binding .}"
+                               FontSize="24"/>
+                            </Frame>
+                        </Grid>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </Grid>
 
 </ContentPage>
