@@ -52,4 +52,5 @@
 	  <None Remove="Resources\Images\logo.png" />
 	</ItemGroup>
 
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
 </Project>
