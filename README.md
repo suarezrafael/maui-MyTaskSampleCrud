@@ -12,5 +12,8 @@ Sample .net maui for beginners -build .net maui UI
 - [x] Swipe Button
 - [x] Data Template
 
-####  Resumo
+####  Base de conhecimento
 [Tutorial youtube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oUBAdL2NwBpDs32zwGqb9DY)
+
+### Imagens
+![Captura](https://github.com/suarezrafael/maui-MyTaskSampleCrud/blob/mvvm/Docs/Capturar.PNG)
