@@ -37,6 +37,10 @@ namespace MyTaskSampleCrud.ViewModel
             
         }
 
-
+        [RelayCommand]
+        async Task Tap(string item)
+        {
+            await Shell.Current.GoToAsync($"{nameof(DetailPage)}?Text={item}");
+        }
     }
 }

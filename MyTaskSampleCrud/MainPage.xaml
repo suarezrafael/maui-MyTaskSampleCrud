@@ -20,7 +20,8 @@
                BackgroundColor="Transparent"/>
         <!--Entrada de texto indicando Grid.Row 2 (2ª linha)-->
         <Entry Placeholder="Enter task"
-               Grid.Row="1" 
+               Grid.Row="1"
+               FontSize="20"
                Text="{Binding Text}"/>
         <!--Botão indicando 2ª linha e 2ª coluna-->
         <Button Text="Add"
@@ -33,7 +34,8 @@
             E Label com BInding dele mesmo-->
         <CollectionView Grid.Row="2"
                         Grid.ColumnSpan="10"
-                        ItemsSource="{Binding Items}">
+                        ItemsSource="{Binding Items}"
+                        SelectionMode="None">
             
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="{x:Type x:String}">
@@ -48,6 +50,11 @@
                         </SwipeView.RightItems>
                         <Grid Padding="0,5">
                             <Frame>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=TapCommand}"
+                                        CommandParameter="{Binding .}"/>
+                                </Frame.GestureRecognizers>
                                 <Label Text="{Binding .}"
                                FontSize="24"/>
                             </Frame>
